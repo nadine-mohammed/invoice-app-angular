@@ -191,7 +191,12 @@ export class InvoiceManageComponent implements OnInit, OnDestroy {
       let desc = this.invoiceForm.get('projectDescription')?.value;
       let clientName = this.invoiceForm.get('clientName')?.value;
       let clientEmail = this.invoiceForm.get('clientEmail')?.value;
-      let status = isDraft ? 'draft' : 'pending';
+      let status = '';
+      if (this.editMode) {
+        status = this.currentInvoice.status;
+      } else {
+        status = isDraft ? 'draft' : 'pending';
+      }
       let senderAdd = {
         street: this.invoiceForm.get('street')?.value,
         city: this.invoiceForm.get('city')?.value,
