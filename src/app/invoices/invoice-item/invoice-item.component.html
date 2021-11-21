@@ -1,0 +1,76 @@
+<div class="invoice-item" [routerLink]="['/invoices', invoiceIdx]">
+  <div class="invoice-id">#{{ invoice.id }}</div>
+  <div class="invoice-date">Due {{ invoice.paymentDue | date }}</div>
+  <div class="invoice-name">{{ invoice.clientName }}</div>
+  <div class="invoice-total">
+    {{ invoice.total | currency: currencyCode:"symbol" }}
+  </div>
+  <div
+    class="invoice-status"
+    [class]="
+      invoice.status === 'pending'
+        ? 'orange'
+        : invoice.status === 'draft'
+        ? 'gray'
+        : 'green'
+    "
+  >
+    <div
+      class="status-dot"
+      [class]="
+        invoice.status === 'pending'
+          ? 'dot-orange'
+          : invoice.status === 'draft'
+          ? 'dot-gray'
+          : 'dot-green'
+      "
+    ></div>
+    <div class="status-txt">
+      {{ invoice.status }}
+    </div>
+  </div>
+  <div class="arrow-svg">
+    <img
+      src="../../../assets/images/icon-arrow-right.svg"
+      alt="arrow-right-icon"
+    />
+  </div>
+</div>
+<div class="invoice-Item-mobile" [routerLink]="['/invoices', invoiceIdx]">
+  <div class="inv-id-name">
+    <div class="invoice-id">#{{ invoice.id }}</div>
+    <div class="invoice-name">{{ invoice.clientName }}</div>
+  </div>
+  <div class="inv-date-total-status">
+    <div class="inv-date-total">
+      <div class="invoice-date">Due {{ invoice.paymentDue }}</div>
+      <div class="invoice-total">
+        {{ invoice.total | currency: currencyCode:"symbol" }}
+      </div>
+    </div>
+    <div
+      class="invoice-status"
+      [class]="
+        invoice.status === 'pending'
+          ? 'orange'
+          : invoice.status === 'draft'
+          ? 'gray'
+          : 'green'
+      "
+    >
+      <div
+        class="status-dot"
+        [class]="
+          invoice.status === 'pending'
+            ? 'dot-orange'
+            : invoice.status === 'draft'
+            ? 'dot-gray'
+            : 'dot-green'
+        "
+      ></div>
+      <div class="status-txt">
+        {{ invoice.status }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<button class="go-back-btn" (click)="onPressBack()">
+  <div class="arrow-back">
+    <img src="../../../../assets/images/icon-arrow-left.svg" />
+  </div>
+  <div class="go-back-txt">Go back</div>
+</button>
+<div class="actions-bar-cont">
+  <div class="status-cont">
+    <div class="status-title">Status</div>
+    <div
+      class="invoice-status"
+      [class]="
+        statusTxt === 'pending'
+          ? 'orange'
+          : statusTxt === 'draft'
+          ? 'gray'
+          : 'green'
+      "
+    >
+      <div
+        class="status-dot"
+        [class]="
+          statusTxt === 'pending'
+            ? 'dot-orange'
+            : statusTxt === 'draft'
+            ? 'dot-gray'
+            : 'dot-green'
+        "
+      ></div>
+      <div class="status-txt">{{ statusTxt }}</div>
+    </div>
+  </div>
+  <div class="actions-cont">
+    <button class="edit-btn" (click)="onEditInvoice()" type="button">
+      Edit
+    </button>
+    <button class="delete-btn" type="button" (click)="onDeleteInvoice()">
+      Delete
+    </button>
+    <button
+      class="mark-as-paid-btn"
+      type="button"
+      (click)="onMarkAsPaid()"
+      [disabled]="isDiabled"
+    >
+      Mark as Paid
+    </button>
+  </div>
+</div>

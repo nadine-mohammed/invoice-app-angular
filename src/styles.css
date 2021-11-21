@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500&display=swap");
+:root {
+  /* colors */
+  --purple: #7c5dfa;
+  --light-purple: #9277ff;
+  --blue: #1e2139;
+  --navy: #252945;
+  --gray: #dfe3fa;
+  --dark-gray: #888eb0;
+  --light-blue: #7e88c3;
+  --dark-blue: #0c0e16;
+  --red: #ec5757;
+  --pink: rgb(255, 151, 151);
+  --light-beige: #f8f8fb;
+  --black: #141625;
+  --sidebar: #494e6e;
+  --bg-Color: #f2f2f2;
+  --invoiceName-color: #858bb2;
+  --status-orange: #ff8f00;
+  --status-light-orange: rgba(255, 143, 0, 0.06);
+  --status-gray: #373b53;
+  --status-light-gray: rgba(55, 59, 83, 0.06);
+  --status-green: #33d69f;
+  --status-light-green: rgb(51, 214, 159, 0.06);
+  --edit-actions-btn: #f9fafe;
+  --manage-bg: rgba(151, 151, 151, 0.5);
+  --item-list-label: #777f98;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*  */
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+}
+html {
+  height: auto;
+}
+body {
+  min-width: 100%;
+  height: 100vh;
+  font-family: "Spartan", sans-serif;
+  overflow: hidden;
+  background-color: var(--bg-Color);
+}
+.manage {
+  min-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--manage-bg);
+  z-index: 2;
+}
+.manage-cont {
+  width: 40%;
+  height: 100%;
+  padding: 30px 10px 30px 30px;
+  position: absolute;
+  z-index: 3;
+  animation: toggleManage 1s;
+  background-color: white;
+  border-top-right-radius: 13px;
+  border-bottom-right-radius: 13px;
+}
+@keyframes toggleManage {
+  0% {
+    left: -1000px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .manage-cont {
+    min-width: 60%;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .manage-cont {
+    min-width: 100%;
+  }
+}

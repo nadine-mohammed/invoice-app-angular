@@ -1,0 +1,103 @@
+<app-actions-bar [idx]="invoiceIdx"></app-actions-bar>
+<div class="inv-details-cont">
+  <div class="inv-details">
+    <!--  -->
+    <div class="top-details">
+      <div class="inv-title">
+        <div class="inv-id">#{{ invoice.id }}</div>
+        <div class="inv-desc">{{ invoice.description }}</div>
+      </div>
+      <div class="inv-address">
+        <div class="street">{{ invoice.senderAddress.street }}</div>
+        <div class="city">{{ invoice.senderAddress.city }}</div>
+        <div class="postCode">{{ invoice.senderAddress.postCode }}</div>
+        <div class="country">{{ invoice.senderAddress.country }}</div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="main-details">
+      <div class="dates-billto-cont">
+        <div class="dates-cont">
+          <div class="inv-Date">
+            <div class="date-title title">Invoice Date</div>
+            <div class="date-txt value">{{ invoice.createdAt | date }}</div>
+          </div>
+          <div class="payment-due">
+            <div class="due-title title">Payment Due</div>
+            <div class="due-txt value">{{ invoice.paymentDue | date }}</div>
+          </div>
+        </div>
+        <div class="bill-to-cont">
+          <div class="bill-to">
+            <div class="bill-title-cont">
+              <div class="bill-title title">Bill to</div>
+              <div class="client-name value">{{ invoice.clientName }}</div>
+            </div>
+            <div class="client-address title">
+              <div class="client-street">
+                {{ invoice.clientAddress.street }}
+              </div>
+              <div class="client-city">{{ invoice.clientAddress.city }}</div>
+              <div class="client-postcode">
+                {{ invoice.clientAddress.postCode }}
+              </div>
+              <div class="client-country">
+                {{ invoice.clientAddress.country }}
+              </div>
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+      <div class="sent-to-cont">
+        <div class="sent-to">
+          <div class="sent-to-title title">Sent to</div>
+          <div class="email value">{{ invoice.clientEmail }}</div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="inv-items-tbl">
+      <div class="tbl-main-data">
+        <div class="tabl-headers">
+          <div class="item-name-h">Item Name</div>
+          <div class="item-Qt-h">QTY.</div>
+          <div class="item-price-h">Price</div>
+          <div class="item-total-h">Total</div>
+        </div>
+        <div class="items-cont">
+          <div *ngFor="let item of invoice.items" class="item-details-cont">
+            <div class="item-name">
+              <div class="name-txt">
+                {{ item.name }}
+              </div>
+              <div class="quantity-price-mobile">
+                {{ item.quantity }} x
+                {{ item.price | currency: currencyCode:"symbol" }}
+              </div>
+            </div>
+            <div class="item-Q">{{ item.quantity }}</div>
+            <div class="item-price">
+              {{ item.price | currency: currencyCode:"symbol" }}
+            </div>
+            <div class="item-total">
+              {{ item.total | currency: currencyCode:"symbol" }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tbl-total-price">
+        <div class="total-title">Amount Due</div>
+        <div class="total-txt">
+          {{ invoice.total | currency: currencyCode:"symbol" }}
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+</div>
+<div class="manage" [style]="{ display: isDisplayed ? 'block' : 'none' }">
+  <div class="manage-cont">
+    <app-invoice-manage [invRealID]="invoice.id"></app-invoice-manage>
+  </div>
+</div>

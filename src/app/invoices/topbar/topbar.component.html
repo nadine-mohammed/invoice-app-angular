@@ -1,0 +1,43 @@
+<div class="topbar">
+  <div class="topbar-title">
+    <h1 class="title">Invoices</h1>
+  </div>
+  <div class="topbar-actions">
+    <div class="dropdown-data">
+      <button class="dropdown-btn" (click)="onToggleOptions()">
+        <div class="dropdown-text">
+          Filter <span class="extra-text">by status</span>
+        </div>
+        <div class="btn-icon-dropdown">
+          <img
+            src="../../../assets/images/icon-arrow-down.svg"
+            alt="arrow-down-icon"
+          />
+        </div>
+      </button>
+      <div class="dropdown-options" [style]="{ display: displayVal }">
+        <div *ngFor="let status of statusList" class="option">
+          <input
+            type="checkbox"
+            name="status"
+            [value]="status"
+            class="status-check"
+            [(ngModel)]="status.ischecked"
+            (change)="onFilterInvoices()"
+          />
+          <div class="status-text">{{ status.value }}</div>
+        </div>
+      </div>
+    </div>
+    <button class="new-inv-btn" (click)="onAddInvoice()">
+      <div class="btn-icon">
+        <span class="material-icons ico-circle"> add_circle </span>
+      </div>
+      <div class="btn-text">New <span class="extra-text">Invoice</span></div>
+    </button>
+  </div>
+</div>
+<div>
+  <div class="more-info">there are {{ invCount }} total invoices</div>
+  <div class="more-info-small-screen">{{ invCount }} Invoices</div>
+</div>

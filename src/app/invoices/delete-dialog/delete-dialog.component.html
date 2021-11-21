@@ -1,0 +1,13 @@
+<div class="delete-confirm-cont">
+  <div class="confirm-d-title">Confirm Deletion</div>
+  <div class="confirm-d-txt">
+    Are you sure you want to delete invoice #{{ data.invRealId }} ? This action
+    cannot be undone.
+  </div>
+  <div class="confirm-d-actions">
+    <button class="cancel-btn" type="button" (click)="close()">Cancel</button>
+    <button class="delete-btn" type="button" (click)="deleteInvoice()">
+      Delete
+    </button>
+  </div>
+</div>

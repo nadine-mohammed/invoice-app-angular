@@ -1,0 +1,25 @@
+<div class="home-topbar">
+  <app-topbar [invCount]="invoices.length"></app-topbar>
+</div>
+<div class="home-invoices" *ngIf="invoices && invoices.length > 0; else empty">
+  <app-invoice-item
+    *ngFor="let inv of invoices"
+    [invoice]="inv"
+    [invoiceIdx]="getRealIdx(inv.id)"
+  ></app-invoice-item>
+</div>
+<ng-template #empty>
+  <div class="empty-list">
+    <img src="../../assets/images/illustration-empty.svg" />
+    <h1 class="empty-title">There is nothing here</h1>
+    <p class="empty-text">
+      Create a new invoice by clicking the <b>New Invoice</b> button and get
+      started.
+    </p>
+  </div>
+</ng-template>
+<div class="manage" [style]="{ display: isDisplayed ? 'block' : 'none' }">
+  <div class="manage-cont">
+    <app-invoice-manage></app-invoice-manage>
+  </div>
+</div>

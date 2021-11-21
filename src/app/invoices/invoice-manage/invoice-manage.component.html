@@ -1,0 +1,468 @@
+<div class="manage-main-form" #invFormRef>
+  <form class="inv-form" [formGroup]="invoiceForm">
+    <div class="form-top-header">
+      <div class="form-header">{{ formHeader }}</div>
+      <button class="form-close-btn" (click)="onCloseForm()" type="button">
+        <span class="material-icons"> close </span>
+      </button>
+    </div>
+    <div class="bill-from">
+      <div class="bill-from-label">Bill Form</div>
+      <div class="street-cont cont">
+        <div class="street-label label">Street Address</div>
+        <input
+          type="text"
+          class="street-input inp"
+          formControlName="street"
+          autocomplete="off"
+        />
+        <!--  -->
+        <div
+          class="error"
+          *ngIf="
+            !invoiceForm.get('street')?.valid &&
+            invoiceForm.get('street')?.touched
+          "
+        >
+          <div *ngIf="invoiceForm.get('street')?.errors?.required">
+            Street is required
+          </div>
+        </div>
+        <!--  -->
+      </div>
+      <div class="city-cont cont">
+        <div class="city">
+          <div class="city-label label">City</div>
+          <input
+            type="text"
+            class="city-input inp"
+            formControlName="city"
+            autocomplete="off"
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="
+              !invoiceForm.get('city')?.valid &&
+              invoiceForm.get('city')?.touched
+            "
+          >
+            <div *ngIf="invoiceForm.get('city')?.errors?.required">
+              City is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="postcode-cont">
+          <div class="postcode-label label">Post Code</div>
+          <input
+            type="text"
+            class="postcode-input inp"
+            formControlName="postCode"
+            autocomplete="off"
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="
+              !invoiceForm.get('postCode')?.valid &&
+              invoiceForm.get('postCode')?.touched
+            "
+          >
+            <div *ngIf="invoiceForm.get('postCode')?.errors?.required">
+              Postcode is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="country-cont">
+          <div class="country-label label">Country</div>
+          <input
+            type="text"
+            class="country-input inp"
+            formControlName="country"
+            autocomplete="off"
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="
+              !invoiceForm.get('country')?.valid &&
+              invoiceForm.get('country')?.touched
+            "
+          >
+            <div *ngIf="invoiceForm.get('country')?.errors?.required">
+              Country is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </div>
+    <div class="bill-to">
+      <div class="bill-to-label">Bill To</div>
+      <div class="clientname-cont cont">
+        <div class="clientname-label label">Client Name</div>
+        <input
+          type="text"
+          class="clientname-input inp"
+          formControlName="clientName"
+          autocomplete="off"
+        />
+        <!--  -->
+        <div
+          class="error"
+          *ngIf="
+            !invoiceForm.get('clientName')?.valid &&
+            invoiceForm.get('clientName')?.touched
+          "
+        >
+          <div *ngIf="invoiceForm.get('clientName')?.errors?.required">
+            Client name is required
+          </div>
+        </div>
+        <!--  -->
+      </div>
+      <div class="clientemail-cont cont">
+        <div class="clientemail-label label">Client Email</div>
+        <input
+          type="email"
+          class="clientemail-input inp"
+          formControlName="clientEmail"
+          placeholder="e.g.email@example.com"
+          autocomplete="off"
+        />
+        <!--  -->
+        <div
+          class="error"
+          *ngIf="
+            !invoiceForm.get('clientEmail')?.valid &&
+            invoiceForm.get('clientEmail')?.touched
+          "
+        >
+          <div *ngIf="invoiceForm.get('clientEmail')?.errors?.required">
+            Client email is required
+          </div>
+          <div *ngIf="invoiceForm.get('clientEmail')?.errors?.email">
+            Client email is not valid
+          </div>
+        </div>
+        <!--  -->
+      </div>
+      <div class="clientstreet-cont cont">
+        <div class="clientstreet-label label">Street Address</div>
+        <input
+          type="text"
+          class="clientstreet-input inp"
+          formControlName="clientStreet"
+          autocomplete="off"
+        />
+        <!--  -->
+        <div
+          class="error"
+          *ngIf="
+            !invoiceForm.get('clientStreet')?.valid &&
+            invoiceForm.get('clientStreet')?.touched
+          "
+        >
+          <div *ngIf="invoiceForm.get('clientStreet')?.errors?.required">
+            Street is required
+          </div>
+        </div>
+        <!--  -->
+      </div>
+      <div class="client-city-cont cont">
+        <div class="client-city">
+          <div class="client-city-label label">City</div>
+          <input
+            type="text"
+            class="client-city-input inp"
+            formControlName="clientCity"
+            autocomplete="off"
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="
+              !invoiceForm.get('clientCity')?.valid &&
+              invoiceForm.get('clientCity')?.touched
+            "
+          >
+            <div *ngIf="invoiceForm.get('clientCity')?.errors?.required">
+              City is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="client-postcode-cont">
+          <div class="client-postcode-label label">Post Code</div>
+          <input
+            type="text"
+            class="client-postcode-input inp"
+            formControlName="clientPostCode"
+            autocomplete="off"
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="
+              !invoiceForm.get('clientPostCode')?.valid &&
+              invoiceForm.get('clientPostCode')?.touched
+            "
+          >
+            <div *ngIf="invoiceForm.get('clientPostCode')?.errors?.required">
+              Postcode is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="client-country-cont">
+          <div class="client-country-label label">Country</div>
+          <input
+            type="text"
+            class="client-country-input inp"
+            formControlName="clientCountry"
+            autocomplete="off"
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="
+              !invoiceForm.get('clientCountry')?.valid &&
+              invoiceForm.get('clientCountry')?.touched
+            "
+          >
+            <div *ngIf="invoiceForm.get('clientCountry')?.errors?.required">
+              Country is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="invDate-payment cont">
+      <div class="inv-Date-cont">
+        <div class="inv-date-label label">Invoice Date</div>
+        <div class="inv-date-input">
+          <input
+            [matDatepicker]="basicDatepicker"
+            formControlName="invoiceDate"
+            class="inp invoiceDate-input"
+            placeholder="mm/dd/yyyy"
+            readonly
+          />
+          <mat-datepicker-toggle
+            [for]="basicDatepicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #basicDatepicker></mat-datepicker>
+        </div>
+        <!--  -->
+        <div
+          class="error"
+          *ngIf="
+            !invoiceForm.get('invoiceDate')?.valid &&
+            invoiceForm.get('invoiceDate')?.touched
+          "
+        >
+          <div *ngIf="invoiceForm.get('invoiceDate')?.errors?.required">
+            Invoice date is required
+          </div>
+        </div>
+        <!--  -->
+      </div>
+      <div class="payment-term-cont">
+        <div class="payment-term-label label">Payment Term</div>
+        <div class="payment-data">
+          <button
+            class="payment-term-btn inp"
+            type="button"
+            (click)="onTogglePayment()"
+          >
+            <div class="payment-val">{{ selectedPayment }}</div>
+            <div class="payment-arrow">
+              <img
+                src="../../../assets/images/icon-arrow-down.svg"
+                alt="arrow-down-icon"
+              />
+            </div>
+          </button>
+          <div
+            class="payment-options"
+            [style]="{ display: optionsDisplay ? 'flex' : 'none' }"
+          >
+            <button
+              class="payment-opt"
+              *ngFor="let option of paymentOptions"
+              (click)="onSetPayment(option)"
+              type="button"
+            >
+              {{ option }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+    <div class="project-desc-cont cont">
+      <div class="project-desc-label label">Project Description</div>
+      <input
+        type="text"
+        class="project-desc-input inp"
+        formControlName="projectDescription"
+        placeholder="e.g.Graphic Design Service"
+        autocomplete="off"
+      />
+      <!--  -->
+      <div
+        class="error"
+        *ngIf="
+          !invoiceForm.get('projectDescription')?.valid &&
+          invoiceForm.get('projectDescription')?.touched
+        "
+      >
+        <div *ngIf="invoiceForm.get('projectDescription')?.errors?.required">
+          Project description is required
+        </div>
+      </div>
+      <!--  -->
+    </div>
+    <!--  -->
+    <div class="items-list-cont" formArrayName="itemList">
+      <div class="item-list-label">Item List</div>
+      <div
+        class="item-cont"
+        *ngFor="let item of getItems(); let i = index"
+        [formGroupName]="i"
+      >
+        <div class="item-name-cont">
+          <div class="item-label label">Item Name</div>
+          <input
+            type="text"
+            formControlName="name"
+            class="item-name-input inp"
+            autocomplete="off"
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="!item.get('name')?.valid && item.get('name')?.touched"
+          >
+            <div *ngIf="item.get('name')?.errors?.required">
+              Item name is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="item-quantity-cont">
+          <div class="item-quantity-label label">Qty.</div>
+          <input
+            type="number"
+            min="1"
+            formControlName="quantity"
+            class="item-quantity-input inp"
+            (change)="
+              calculateTotal(
+                item.get('price'),
+                item.get('quantity'),
+                item.get('total')
+              )
+            "
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="
+              !item.get('quantity')?.valid && item.get('quantity')?.touched
+            "
+          >
+            <div *ngIf="item.get('quantity')?.errors?.required">
+              Quantity is required
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="item-price-cont">
+          <div class="item-price-label label">Price</div>
+          <input
+            type="text"
+            formControlName="price"
+            class="item-price-input inp"
+            autocomplete="off"
+            (change)="
+              calculateTotal(
+                item.get('price'),
+                item.get('quantity'),
+                item.get('total')
+              )
+            "
+          />
+          <!--  -->
+          <div
+            class="error"
+            *ngIf="!item.get('price')?.valid && item.get('price')?.touched"
+          >
+            <div *ngIf="item.get('price')?.errors?.required">
+              Price is required
+            </div>
+            <div
+              *ngIf="
+                !item.get('price')?.errors?.validPrice &&
+                !item.get('price')?.errors?.required
+              "
+            >
+              Price must be numbers only
+            </div>
+          </div>
+          <!--  -->
+        </div>
+        <div class="item-total-cont">
+          <div class="item-total-label label">Total</div>
+          <input
+            type="text"
+            formControlName="total"
+            class="item-total-input inp"
+            readonly
+          />
+        </div>
+        <div class="delete-item" (click)="onDeleteItem(i)">
+          <span class="material-icons delete-ico-url"> delete </span>
+        </div>
+      </div>
+      <button class="add-item-btn" type="button" (click)="onAddItem()">
+        <div class="add-item-ico">
+          <img src="../../../assets/images/icon-plus.svg" alt="add-icon" />
+        </div>
+        <div class="add-item-txt">Add New Item</div>
+      </button>
+    </div>
+    <div
+      class="error"
+      [style]="{
+        display: !invoiceForm.valid && isInvalidFormSubmitted ? 'block' : 'none'
+      }"
+    >
+      All fields must be added
+    </div>
+    <!--  -->
+    <div class="form-actions">
+      <button class="discard-btn" type="button" (click)="onCloseForm()">
+        Discard
+      </button>
+      <div class="save-btns-cont">
+        <button
+          class="save-draft-btn"
+          type="submit"
+          (click)="onSubmit(true)"
+          [style]="{ display: !editMode ? 'inline' : 'none' }"
+        >
+          Save as Draft
+        </button>
+        <button class="save-btn" type="submit" (click)="onSubmit(false)">
+          Save & Send
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- reponsive -->
