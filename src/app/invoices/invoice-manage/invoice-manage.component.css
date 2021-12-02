@@ -331,7 +331,7 @@ input[type="number"]::-webkit-inner-spin-button {
     color: var(--red);
   }
 }
-@media screen and (max-width: 1024px) and (min-width: 375px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .invoiceDate-input {
     width: 70%;
   }
